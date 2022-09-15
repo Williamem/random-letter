@@ -1,7 +1,7 @@
-//variables
 //elements
 const letter = document.getElementById('letter');
 const letterBox = document.getElementById('letter-box');
+
 
 // create a random RGB to use in CSS
 const randomRGB = () => {
@@ -28,14 +28,70 @@ const randomLetter = num => {
 }
 
 
-//arrays
 //alphabet
 const alphabet = createAlphabet();
+
+
 //entrance animations
-const entranceAnimations = ['backInDown', 'backInLeft', 'backInRight', 'backInUp'];
+const entranceAnimations = [
+  "backInDown",
+  "backInLeft",
+  "backInRight",
+  "backInUp",
+  "bounceIn",
+  "bounceInDown",
+  "bounceInUp",
+  "bounceInLeft",
+  "bounceInRight",
+  "flipInX",
+  "flipInY",
+  "lightSpeedInRight",
+  "lightSpeedInLeft",
+  "rotateIn",
+  "rotateInDownLeft",
+  "rotateInDownRight",
+  "rotateInUpLeft",
+  "rotateInUpRight",
+  "jackInTheBox",
+  "rollIn"
+];
 
 //exit animations
-const exitAnimations = ['backOutDown', 'backOutLeft', 'backOutRight', 'backOutUp'];
+const exitAnimations = [
+  "backOutDown",
+  "backOutLeft",
+  "backOutRight",
+  "backOutUp",
+  "bounceOut",
+  "bounceOutDown",
+  "bounceOutUp",
+  "bounceOutLeft",
+  "bounceOutRight",
+  "flipOutX",
+  "flipOutY",
+  "lightSpeedOutRight",
+  "lightSpeedOutLeft",
+  "rotateOut",
+  "rotateOutDownLeft",
+  "rotateOutDownRight",
+  "rotateOutUpLeft",
+  "rotateOutUpRight",
+  "hinge",
+  "rollOut"
+];
+
+
+//easily make the arrays for the effects
+/* const strToArr = () => {
+  //entrances
+  //let str = 'backInDown backInLeft backInRight backInUp bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight flipInX flipInY lightSpeedInRight lightSpeedInLeft rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight jackInTheBox rollIn';
+  //exits
+  let str = 'backOutDown backOutLeft backOutRight backOutUp bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight flipOutX flipOutY lightSpeedOutRight lightSpeedOutLeft rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollOut';
+  let arr = str.split(' ');
+  console.log(arr);
+};
+strToArr(); */
+
 
 //chose random animation
 const randomAnimation = arr => {
@@ -54,6 +110,7 @@ const makeChanges = () => {
   letterBox.classList.add(exitAnimation);
   letterBox.addEventListener('animationend', () => {
     letterBox.classList.remove(exitAnimation);
+    //new values for letter, color and entrance animation
     letter.textContent = newLetter;
     letterBox.style.backgroundColor = newColor;
     letterBox.classList.add(entranceAnimation);
